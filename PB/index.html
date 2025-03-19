@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy-Paste Emoji Trick</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f8f8; /* Light white background */
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #444;
+            font-size: 18px;
+        }
+        .text-box {
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 18px;
+            box-sizing: border-box;
+            height: 120px;
+            resize: vertical;
+            margin-bottom: 25px;
+            background-color: #fff;
+        }
+        #output-box {
+            font-size: 48px;
+            text-align: center;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Copy-Paste Emoji Trick</h1>
+    
+    <p>Copy some text from below and try pasting it somewhere</p>
+    
+    <textarea id="input-box" class="text-box" readonly>Try copying this text!</textarea>
+    
+    <h2>Now Paste Here</h2>
+    
+    <textarea id="output-box" class="text-box"></textarea>
+
+    <script>
+        const emojis = ["😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣", "😊", "😇", "🙂", "🙃", "😉", "😌", "😍", "🥰", "😘", "😗", "😙", "😚", "😋", "😛", "😝", "😜", "🤪", "🤨", "🧐", "🤓", "😎", "🤩", "🥳", "😏", "😒", "😞", "😔", "😟", "😕", "🙁", "☹️", "😣", "😖", "😫", "😩", "🥺", "😢", "😭", "😤", "😠", "😡", "🤬", "🤯", "😳", "🥵", "🥶", "😱", "😨", "😰", "😥", "😓", "🤗", "🤔", "🤭", "🤫", "🤥", "😶", "😐", "😑", "😬", "🙄", "😯", "😦", "😧", "😮", "😲", "🥱", "😴", "🤤", "😪", "😵", "🤐", "🥴", "🤢", "🤮", "🤧", "😷", "🤒", "🤕", "🤑", "🤠", "👽", "🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐵", "🍎", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🍒", "🥥", "🌲", "🌴", "🌵", "🌺", "🌸", "🌼"];
+
+        function getRandomEmoji() {
+            return emojis[Math.floor(Math.random() * emojis.length)];
+        }
+
+        document.getElementById('input-box').onclick = function() {
+            this.select();
+        };
+
+        document.getElementById('output-box').addEventListener('paste', function(event) {
+            setTimeout(() => {
+                this.value = getRandomEmoji();
+            }, 10);
+        });
+    </script>
+</body>
+</html>
